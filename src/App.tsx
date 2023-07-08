@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import TextField, { TextFieldProps } from "./Components/TextField";
 
 function App() {
+  const [email, setEmail] = useState<string>("");
+
+  const textInputProps: TextFieldProps = {
+    label: "Email",
+    placeholder: "Enter your email",
+    value: email,
+    onChange: (e) => setEmail(e.target.value),
+    error: email.length === 0,
+    showBorder: true,
+    spellCheck: false,
+    size: "md",
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <br />
+      <div style={{ padding: "20px", width: "350px" }}>
+        <TextField {...textInputProps} />
+      </div>
+      <br />
     </div>
   );
 }
