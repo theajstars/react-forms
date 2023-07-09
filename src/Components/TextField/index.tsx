@@ -1,5 +1,9 @@
 import { useRef, useState } from "react";
+
 import { motion } from "framer-motion";
+
+import ErrorIcon from "../../Assets/ErrorIcon.svg";
+
 import "./style.scss";
 
 export interface TextFieldProps {
@@ -7,6 +11,7 @@ export interface TextFieldProps {
   value: string | number;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label?: string;
+  errorMessage?: string;
   placeholder?: string;
   error?: boolean;
   size?: "lg" | "md" | "sm";
@@ -28,24 +33,31 @@ export default function TextField({
   size = "md",
   inputStyle,
   labelStyle,
+  errorMessage,
 }: TextFieldProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [animate, setAnimate] = useState<boolean>(false);
   return (
-    <div className="container">
-      <span
-        className="label"
-        onClick={() => {
-          inputRef.current?.focus();
-        }}
-        style={labelStyle}
-      >
-        {label}
-      </span>
+    <div className="textfield-container">
+      {label && (
+        <span
+          className="label"
+          onClick={() => {
+            inputRef.current?.focus();
+          }}
+          style={labelStyle}
+        >
+          {label}
+        </span>
+      )}
       <motion.input
         initial={false}
         animate={{
-          borderColor: animate ? "rgba(0, 77, 153, 0.7)" : "rgba(0, 0, 0, 1)",
+          borderColor: error
+            ? "#D44848"
+            : animate
+            ? "rgba(0, 77, 153, 0.7)"
+            : inputStyle?.borderColor ?? "#DDDDDD",
         }}
         ref={inputRef}
         onFocus={() => {
@@ -64,6 +76,18 @@ export default function TextField({
         spellCheck={spellCheck}
         style={inputStyle}
       />
+      <span className="error-message">
+        {error ? (
+          errorMessage && (
+            <div className="error-container">
+              <img src={ErrorIcon} alt="" className="error-icon" />
+              {errorMessage}
+            </div>
+          )
+        ) : (
+          <span>&nbsp;</span>
+        )}
+      </span>
     </div>
   );
 }

@@ -13,11 +13,20 @@ function App() {
     showBorder: true,
     spellCheck: false,
     size: "md",
+    type: "password",
+    errorMessage: "An error occured",
+    inputStyle: {
+      // borderColor: "red",
+      // backgroundColor: "green",
+    },
   };
   return (
     <div className="App">
       <br />
-      <div style={{ padding: "20px", width: "350px" }}>
+      <div style={{ padding: "20px", width: "100%", boxSizing: "border-box" }}>
+        <TextField {...textInputProps} />
+      </div>
+      <div style={{ padding: "20px", width: "100%", boxSizing: "border-box" }}>
         <TextField {...textInputProps} />
       </div>
       <br />
