@@ -76,7 +76,13 @@ export default function TextField({
         spellCheck={spellCheck}
         style={inputStyle}
       />
-      <span className="error-message">
+      <motion.span
+        className="error-message"
+        initial={false}
+        animate={{
+          opacity: error ? 1 : 0,
+        }}
+      >
         {error ? (
           errorMessage && (
             <div className="error-container">
@@ -87,7 +93,7 @@ export default function TextField({
         ) : (
           <span>&nbsp;</span>
         )}
-      </span>
+      </motion.span>
     </div>
   );
 }

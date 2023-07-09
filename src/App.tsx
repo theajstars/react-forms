@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button, { ButtonProps } from "./Components/Button";
 import TextField, { TextFieldProps } from "./Components/TextField";
 
 function App() {
@@ -20,6 +21,11 @@ function App() {
       // backgroundColor: "green",
     },
   };
+
+  const buttonProps: ButtonProps = {
+    label: "Click me!",
+    onClick: () => alert("Beans"),
+  };
   return (
     <div className="App">
       <br />
@@ -27,7 +33,7 @@ function App() {
         <TextField {...textInputProps} />
       </div>
       <div style={{ padding: "20px", width: "100%", boxSizing: "border-box" }}>
-        <TextField {...textInputProps} />
+        <Button {...buttonProps} />
       </div>
       <br />
     </div>

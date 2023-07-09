@@ -1,0 +1,61 @@
+.textfield-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .label {
+    margin-bottom: 5px;
+    margin-left: 7px;
+    font-size: 14px;
+  }
+  .input {
+    font-family: "Mulish", sans-serif;
+    width: 100%;
+    outline: none;
+    border-radius: 7px;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    font-size: 15px;
+    transition-duration: 0.12s;
+  }
+  .input[type="password"]::placeholder {
+    letter-spacing: initial;
+    font-size: 15px;
+  }
+  .input[type="password"] {
+    letter-spacing: 2px;
+    font-size: 18px;
+  }
+  .input-lg {
+    height: 50px;
+  }
+  .input-md {
+    height: 39px;
+  }
+  .input-sm {
+    height: 30px;
+  }
+  .input-error {
+    border-color: #d44848 !important;
+  }
+  .border-true {
+    border: 2px solid #dddddd;
+  }
+  .border-false {
+    border: none;
+  }
+  .error-message {
+    color: #d44848;
+    margin-top: 4px;
+    margin-left: 7px;
+    font-size: 14px;
+  }
+  .error-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .error-icon {
+    margin-right: 10px;
+    height: 15px;
+  }
+}
