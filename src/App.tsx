@@ -23,7 +23,11 @@ function App() {
   };
 
   const buttonProps: ButtonProps = {
-    label: "Click me!",
+    label: "Help!",
+    // status: "success",
+    showIcon: true,
+    size: "md",
+    variant: "filled",
     onClick: () => alert("Beans"),
   };
   return (
@@ -32,8 +36,17 @@ function App() {
       <div style={{ padding: "20px", width: "100%", boxSizing: "border-box" }}>
         <TextField {...textInputProps} />
       </div>
-      <div style={{ padding: "20px", width: "100%", boxSizing: "border-box" }}>
+      <div
+        style={{
+          padding: "20px",
+          width: "100%",
+          boxSizing: "border-box",
+          display: "flex",
+        }}
+      >
         <Button {...buttonProps} />
+        <Button {...buttonProps} variant="filled" />
+        <Button status="success" {...buttonProps} />
       </div>
       <br />
     </div>

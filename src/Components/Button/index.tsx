@@ -3,39 +3,90 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import ErrorIcon from "../../Assets/ErrorIcon.svg";
+import SuccessIcon from "../../Assets/SuccessIcon.svg";
 
 import "./style.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconName } from "@fortawesome/fontawesome-svg-core";
+import { faTimes, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 export interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
-  type?: "submit" | "button";
-
   label: string;
-  icon?: "info" | "error" | "success";
+  showIcon?: boolean;
   size?: "lg" | "md" | "sm";
   variant?: "outlined" | "filled";
-  buttonStyle?: React.CSSProperties;
+  status?: "default" | "info" | "error" | "success" | "warning";
+  labelStyle?: React.CSSProperties;
+  iconStyle?: React.CSSProperties;
+  fullWidth?: boolean;
+  classNameList?: string[];
+  customIcon?: string;
 }
 
 export default function Button({
-  type = "button",
   label,
-  icon,
+  showIcon = false,
   variant = "filled",
   size = "md",
-  buttonStyle,
+  status = "default",
+  labelStyle,
+  iconStyle,
+  fullWidth = false,
+  classNameList,
+  customIcon,
   ...restOfProps
-}: ButtonProps) {
+}: Omit<ButtonProps, "className">) {
+  // const { onClick } = restOfProps
+  const classes = classNameList ? classNameList.join(" ") : "";
   const inputRef = useRef<HTMLInputElement>(null);
   const [animate, setAnimate] = useState<boolean>(false);
+  const getButtonIcon = () => {
+    switch (status) {
+      case "default":
+        return "" as IconName;
+      case "error":
+        return faTimes;
+      case "success":
+        return faCheck;
+    }
+  };
+  const getButtonIconShowing = () => {
+    if (!showIcon) {
+      return false;
+    } else {
+      if (status === "default" && !customIcon) {
+        return false;
+      } else {
+        if (status !== "default") {
+          return true;
+        }
+      }
+    }
+    return true;
+  };
   return (
-    <div className="button-container">
-      <button {...restOfProps}>{label}</button>
+    <button
+      className={`button button-${size} button-${status} button-${status}-${variant} ${
+        fullWidth ? "full-width" : ""
+      } ${classes}`}
+      {...restOfProps}
+    >
       <motion.span
         initial={false}
         animate={{
-          display: icon ? "" : "none",
+          display: getButtonIconShowing() ? "flex" : "none",
+          opacity: getButtonIconShowing() ? 1 : 0,
         }}
-      ></motion.span>
-    </div>
+        className="icon"
+        style={iconStyle}
+      >
+        <FontAwesomeIcon icon={getButtonIcon() as IconName} />
+        {/* <FontAwesomeIcon icon={["fal", getButtonIcon() as IconName]} /> */}
+      </motion.span>
+
+      <span className="label" style={labelStyle}>
+        {label}
+      </span>
+    </button>
   );
 }
