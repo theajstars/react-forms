@@ -16,8 +16,7 @@ export interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
   size?: "lg" | "md" | "sm";
   variant?: "outlined" | "filled";
   status?: "default" | "info" | "error" | "success" | "warning";
-  labelStyle?: React.CSSProperties;
-  iconStyle?: React.CSSProperties;
+  iconAnimation?: "spin" | "pulse";
   fullWidth?: boolean;
   classNameList?: string[];
   customIcon?: string;
@@ -29,8 +28,7 @@ export default function Button({
   variant = "filled",
   size = "md",
   status = "default",
-  labelStyle,
-  iconStyle,
+  iconAnimation,
   fullWidth = false,
   classNameList,
   customIcon,
@@ -78,15 +76,16 @@ export default function Button({
           opacity: getButtonIconShowing() ? 1 : 0,
         }}
         className="icon"
-        style={iconStyle}
       >
-        <FontAwesomeIcon icon={getButtonIcon() as IconName} />
-        {/* <FontAwesomeIcon icon={["fal", getButtonIcon() as IconName]} /> */}
+        <FontAwesomeIcon
+          icon={getButtonIcon() as IconName}
+          spin={iconAnimation === "spin"}
+          pulse={iconAnimation === "pulse"}
+        />
       </motion.span>
 
-      <span className="label" style={labelStyle}>
-        {label}
-      </span>
+      {getButtonIconShowing() && <span>&nbsp;</span>}
+      <span className={`label`}>{label}</span>
     </button>
   );
 }

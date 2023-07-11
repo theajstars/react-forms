@@ -29,6 +29,9 @@ function App() {
     size: "md",
     variant: "filled",
     onClick: () => alert("Beans"),
+    style: {
+      margin: "10px",
+    },
   };
   return (
     <div className="App">
@@ -46,7 +49,33 @@ function App() {
       >
         <Button {...buttonProps} />
         <Button {...buttonProps} variant="filled" />
-        <Button status="success" {...buttonProps} />
+        <Button status="success" {...buttonProps} variant="filled" />
+        <Button status="success" {...buttonProps} variant="outlined" />
+        <Button
+          status="success"
+          {...buttonProps}
+          variant="outlined"
+          showIcon={false}
+        />
+      </div>
+      <div
+        style={{
+          padding: "20px",
+          width: "100%",
+          boxSizing: "border-box",
+          display: "flex",
+        }}
+      >
+        <Button {...buttonProps} />
+        <Button {...buttonProps} variant="filled" />
+        <Button status="error" {...buttonProps} variant="filled" />
+        <Button status="error" {...buttonProps} variant="outlined" />
+        <Button
+          status="error"
+          {...buttonProps}
+          variant="outlined"
+          showIcon={false}
+        />
       </div>
       <br />
     </div>
