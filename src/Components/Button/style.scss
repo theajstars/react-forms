@@ -92,3 +92,43 @@
   border-color: $RedSecondary;
   background-color: $RedSecondary;
 }
+.button-warning {
+  border-color: $YellowPrimary;
+}
+
+.button-warning-outlined {
+  background: transparent;
+  color: $YellowPrimary;
+}
+.button-warning-filled {
+  background: $YellowPrimary;
+  color: #fff;
+}
+.button-warning-outlined:hover {
+  border-color: $YellowTertiary;
+  background-color: $YellowTertiary;
+}
+.button-warning-filled:hover {
+  border-color: $YellowSecondary;
+  background-color: $YellowSecondary;
+}
+.button-info {
+  border-color: $InfoPrimary;
+}
+
+.button-info-outlined {
+  background: transparent;
+  color: $InfoPrimary;
+}
+.button-info-filled {
+  background: $InfoPrimary;
+  color: #fff;
+}
+.button-info-outlined:hover {
+  border-color: $InfoTertiary;
+  background-color: $InfoTertiary;
+}
+.button-info-filled:hover {
+  border-color: $InfoSecondary;
+  background-color: $InfoSecondary;
+}

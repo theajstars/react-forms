@@ -2,41 +2,48 @@ import { useRef, useState } from "react";
 
 import { motion } from "framer-motion";
 
-import ErrorIcon from "../../Assets/ErrorIcon.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconName } from "@fortawesome/fontawesome-svg-core";
+import {
+  faExclamationCircle,
+  faCheck,
+  faWarning,
+  faInfo,
+  faInfoCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 import "./style.scss";
 
-export interface TextFieldProps {
-  type?: "text" | "password" | "number";
-  value: string | number;
+export interface TextFieldProps
+  extends React.ComponentPropsWithoutRef<"input"> {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label?: string;
   errorMessage?: string;
-  placeholder?: string;
+
   error?: boolean;
-  size?: "lg" | "md" | "sm";
+  inputSize?: "lg" | "md" | "sm";
   showBorder?: boolean;
-  spellCheck?: boolean;
   inputStyle?: React.CSSProperties;
   labelStyle?: React.CSSProperties;
+  classNameList?: string[];
 }
 
 export default function TextField({
-  type = "text",
-  value,
   onChange,
   label,
-  placeholder,
   error,
   showBorder = true,
-  spellCheck = true,
-  size = "md",
+  inputSize = "md",
   inputStyle,
   labelStyle,
   errorMessage,
-}: TextFieldProps) {
+  classNameList,
+}: Omit<TextFieldProps, "className">) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [animate, setAnimate] = useState<boolean>(false);
+
+  const classes = classNameList ? classNameList.join(" ") : "";
+
   return (
     <div className="textfield-container">
       {label && (
@@ -66,14 +73,10 @@ export default function TextField({
         onBlur={() => {
           setAnimate(false);
         }}
-        value={value}
-        type={type}
-        placeholder={placeholder}
         onChange={onChange}
-        className={`input input-${size} ${
+        className={`input input-${inputSize} ${
           error ? "input-error" : ""
-        } border-${showBorder}`}
-        spellCheck={spellCheck}
+        } border-${showBorder} ${classes}`}
         style={inputStyle}
       />
       <motion.span
@@ -86,7 +89,7 @@ export default function TextField({
         {error ? (
           errorMessage && (
             <div className="error-container">
-              <img src={ErrorIcon} alt="" className="error-icon" />
+              <FontAwesomeIcon icon={faWarning} className="error-icon" />
               {errorMessage}
             </div>
           )

@@ -13,7 +13,7 @@ function App() {
     error: email.length === 0,
     showBorder: true,
     spellCheck: false,
-    size: "md",
+    inputSize: "md",
     type: "password",
     errorMessage: "An error occured",
     inputStyle: {
@@ -72,6 +72,44 @@ function App() {
         <Button status="error" {...buttonProps} variant="outlined" />
         <Button
           status="error"
+          {...buttonProps}
+          variant="outlined"
+          showIcon={false}
+        />
+      </div>
+      <div
+        style={{
+          padding: "20px",
+          width: "100%",
+          boxSizing: "border-box",
+          display: "flex",
+        }}
+      >
+        <Button {...buttonProps} />
+        <Button {...buttonProps} variant="filled" />
+        <Button status="warning" {...buttonProps} variant="filled" />
+        <Button status="warning" {...buttonProps} variant="outlined" />
+        <Button
+          status="warning"
+          {...buttonProps}
+          variant="outlined"
+          showIcon={false}
+        />
+      </div>
+      <div
+        style={{
+          padding: "20px",
+          width: "100%",
+          boxSizing: "border-box",
+          display: "flex",
+        }}
+      >
+        <Button {...buttonProps} />
+        <Button {...buttonProps} variant="filled" />
+        <Button status="info" {...buttonProps} variant="filled" />
+        <Button status="info" {...buttonProps} variant="outlined" />
+        <Button
+          status="info"
           {...buttonProps}
           variant="outlined"
           showIcon={false}

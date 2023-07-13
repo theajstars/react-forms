@@ -1,14 +1,16 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 import { motion } from "framer-motion";
-
-import ErrorIcon from "../../Assets/ErrorIcon.svg";
-import SuccessIcon from "../../Assets/SuccessIcon.svg";
 
 import "./style.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
-import { faTimes, faCheck } from "@fortawesome/free-solid-svg-icons";
+import {
+  faExclamationCircle,
+  faCheck,
+  faWarning,
+  faInfoCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 export interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
   label: string;
@@ -36,16 +38,20 @@ export default function Button({
 }: Omit<ButtonProps, "className">) {
   // const { onClick } = restOfProps
   const classes = classNameList ? classNameList.join(" ") : "";
-  const inputRef = useRef<HTMLInputElement>(null);
+
   const [animate, setAnimate] = useState<boolean>(false);
   const getButtonIcon = () => {
     switch (status) {
       case "default":
         return "" as IconName;
       case "error":
-        return faTimes;
+        return faExclamationCircle;
       case "success":
         return faCheck;
+      case "warning":
+        return faWarning;
+      case "info":
+        return faInfoCircle;
     }
   };
   const getButtonIconShowing = () => {
