@@ -3,14 +3,7 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconName } from "@fortawesome/fontawesome-svg-core";
-import {
-  faExclamationCircle,
-  faCheck,
-  faWarning,
-  faInfo,
-  faInfoCircle,
-} from "@fortawesome/free-solid-svg-icons";
+import { faWarning } from "@fortawesome/free-solid-svg-icons";
 
 import "./style.scss";
 

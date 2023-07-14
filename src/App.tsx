@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Button, { ButtonProps } from "./Components/Button";
+import CheckBox, { CheckBoxProps } from "./Components/CheckBox";
 import TextField, { TextFieldProps } from "./Components/TextField";
 
 function App() {
   const [email, setEmail] = useState<string>("");
+  const [someBull, setSomeBull] = useState<boolean>(false);
 
   const textInputProps: TextFieldProps = {
     label: "Email",
@@ -33,11 +35,33 @@ function App() {
       margin: "10px",
     },
   };
+  const checkBoxProps: CheckBoxProps = {
+    checkboxStyle: {
+      margin: "10px",
+    },
+    value: someBull,
+    onChange: (e) => {
+      console.log(e);
+      setSomeBull(e);
+    },
+  };
   return (
     <div className="App">
       <br />
       <div style={{ padding: "20px", width: "100%", boxSizing: "border-box" }}>
         <TextField {...textInputProps} />
+      </div>
+      <div
+        style={{
+          padding: "20px",
+          width: "100%",
+          boxSizing: "border-box",
+          display: "flex",
+        }}
+      >
+        <CheckBox {...checkBoxProps} />
+        <CheckBox size="sm" {...checkBoxProps} />
+        <CheckBox size="lg" {...checkBoxProps} />
       </div>
       <div
         style={{
