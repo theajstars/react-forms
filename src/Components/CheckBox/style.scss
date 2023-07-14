@@ -20,10 +20,24 @@
   }
 }
 .checkbox-checked {
-  background-color: $GreenPrimary;
   .check {
     color: #fff;
   }
+}
+.checkbox-default {
+  background-color: $GreyPrimary;
+}
+.checkbox-success {
+  background-color: $GreenPrimary;
+}
+.checkbox-info {
+  background-color: $InfoPrimary;
+}
+.checkbox-error {
+  background-color: $RedTertiary;
+}
+.checkbox-warning {
+  background-color: $YellowSecondary;
 }
 .checkbox-md {
   width: 17px;

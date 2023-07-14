@@ -60,7 +60,10 @@ function App() {
         }}
       >
         <CheckBox {...checkBoxProps} />
-        <CheckBox size="sm" {...checkBoxProps} />
+        <CheckBox status="success" size="sm" {...checkBoxProps} />
+        <CheckBox status="error" size="sm" {...checkBoxProps} />
+        <CheckBox status="warning" size="sm" {...checkBoxProps} />
+        <CheckBox status="info" size="sm" {...checkBoxProps} />
         <CheckBox size="lg" {...checkBoxProps} />
       </div>
       <div
