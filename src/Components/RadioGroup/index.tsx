@@ -5,24 +5,21 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
-export interface CheckBoxProps {
-  value: boolean;
+export interface RadioGroupProps {
+  value?: boolean;
   onChange?: (value: boolean) => void;
   size?: "sm" | "lg" | "md";
   label?: string;
   checkboxStyle?: React.CSSProperties;
   style?: React.CSSProperties;
   status?: "default" | "info" | "error" | "success" | "warning";
+  children: React.ReactElement<RadioProps>[] | React.ReactElement<RadioProps>;
 }
-export default function CheckBox({
+export default function RadioGroup({
   value,
   onChange,
   size = "md",
-  status = "success",
-  checkboxStyle,
-  label,
-  style,
-}: CheckBoxProps) {
+}: RadioGroupProps) {
   const getCheckboxStatusColor = () => {
     switch (status) {
       case "default":
@@ -38,10 +35,9 @@ export default function CheckBox({
     }
   };
   return (
-    <span className="checkbox-parent" style={style}>
+    <span className="checkbox-parent">
       <motion.span
         initial={false}
-        style={checkboxStyle}
         animate={{
           backgroundColor: value ? getCheckboxStatusColor() : "#fff",
           borderColor: value ? getCheckboxStatusColor() : "#3f3f3f",
@@ -57,18 +53,18 @@ export default function CheckBox({
       >
         <FontAwesomeIcon icon={faCheck} className={`check`} />
       </motion.span>
-      {label && (
-        <span
-          onClick={() => {
-            if (onChange) {
-              onChange(!value);
-            }
-          }}
-          className="label"
-        >
-          {label}
-        </span>
-      )}
+    </span>
+  );
+}
+
+export interface RadioProps {
+  value: string | number;
+  label: string;
+}
+export function Radio({ value, label }: RadioProps) {
+  return (
+    <span className="radio-container">
+      <span className="radio"></span>
     </span>
   );
 }

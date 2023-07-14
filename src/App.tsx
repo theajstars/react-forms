@@ -36,9 +36,10 @@ function App() {
     },
   };
   const checkBoxProps: CheckBoxProps = {
-    checkboxStyle: {
+    style: {
       margin: "10px",
     },
+    label: "Click on Deez",
     value: someBull,
     onChange: (e) => {
       console.log(e);
@@ -51,6 +52,14 @@ function App() {
       <div style={{ padding: "20px", width: "100%", boxSizing: "border-box" }}>
         <TextField {...textInputProps} />
       </div>
+      <div
+        style={{
+          padding: "20px",
+          width: "100%",
+          boxSizing: "border-box",
+          display: "flex",
+        }}
+      ></div>
       <div
         style={{
           padding: "20px",
