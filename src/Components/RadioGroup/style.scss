@@ -1,60 +1,67 @@
 @import "../../index.scss";
-.checkbox-parent {
+.radio-group-container {
   display: flex;
-  align-items: center;
-  .checkbox-container {
-    padding: 0px;
-    margin: 0px;
+  flex-direction: row;
+  width: fit-content;
+  margin: 5px;
+
+  .radio-container {
+    border-radius: 50%;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
-    border: 1px solid $GreySecondary;
-    border-radius: 4px;
+    width: 15px;
+    height: 15px;
+    padding: 2px;
     cursor: pointer;
-    padding: 3px;
-    box-sizing: content-box;
-    background-color: transparent;
-    .check {
-      border-radius: 4px;
-      color: transparent;
-      width: 100%;
-      height: 100%;
+    border: 1px solid;
+    margin: 0 2px;
+    transition-duration: 0.12s;
+    .radio {
+      font-size: 13px;
     }
   }
-  .checkbox-checked {
-    .check {
-      color: #fff;
-    }
+  .radio-container:hover {
+    opacity: 0.7;
   }
-  .checkbox-default {
-    background-color: $GreyPrimary;
+}
+.radio-group-container-default {
+  .radio-container {
+    border: 1px solid $WhiteSecondary;
   }
-  .checkbox-success {
-    background-color: $GreenPrimary;
+  .radio {
+    color: $WhiteSecondary;
   }
-  .checkbox-info {
-    background-color: $InfoPrimary;
+}
+.radio-group-container-success {
+  .radio-container {
+    border: 1px solid $GreenPrimary;
   }
-  .checkbox-error {
-    background-color: $RedTertiary;
+  .radio {
+    color: $GreenPrimary;
   }
-  .checkbox-warning {
-    background-color: $YellowSecondary;
+}
+.radio-group-container-error {
+  .radio-container {
+    border: 1px solid $RedPrimary;
   }
-  .checkbox-md {
-    width: 17px;
-    height: 17px;
+  .radio {
+    color: $RedPrimary;
   }
-  .checkbox-lg {
-    width: 24px;
-    height: 24px;
+}
+.radio-group-container-info {
+  .radio-container {
+    border: 1px solid $InfoPrimary;
   }
-  .checkbox-sm {
-    width: 13px;
-    height: 13px;
+  .radio {
+    color: $InfoPrimary;
   }
-  .label {
-    margin-left: 5px;
+}
+.radio-group-container-warning {
+  .radio-container {
+    border: 1px solid $YellowPrimary;
+  }
+  .radio {
+    color: $YellowPrimary;
   }
 }

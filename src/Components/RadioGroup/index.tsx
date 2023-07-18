@@ -1,17 +1,20 @@
-import "./style.scss";
+import { Children } from "react";
 
 import { motion } from "framer-motion";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheck,
+  faCircle,
+  faDotCircle,
+} from "@fortawesome/free-solid-svg-icons";
+
+import "./style.scss";
 
 export interface RadioGroupProps {
-  value?: boolean;
-  onChange?: (value: boolean) => void;
+  value: any;
+  onChange: (value: any) => void;
   size?: "sm" | "lg" | "md";
-  label?: string;
-  checkboxStyle?: React.CSSProperties;
-  style?: React.CSSProperties;
   status?: "default" | "info" | "error" | "success" | "warning";
   children: React.ReactElement<RadioProps>[] | React.ReactElement<RadioProps>;
 }
@@ -19,6 +22,8 @@ export default function RadioGroup({
   value,
   onChange,
   size = "md",
+  status = "default",
+  children,
 }: RadioGroupProps) {
   const getCheckboxStatusColor = () => {
     switch (status) {
@@ -34,26 +39,33 @@ export default function RadioGroup({
         return "#13a533";
     }
   };
+
+  const radioElements = Children.map(children, (child) => {
+    const { value, label } = child.props;
+    if (!label || !value) {
+      return undefined;
+    }
+    return { value, label };
+  });
+  console.log(radioElements);
   return (
-    <span className="checkbox-parent">
-      <motion.span
-        initial={false}
-        animate={{
-          backgroundColor: value ? getCheckboxStatusColor() : "#fff",
-          borderColor: value ? getCheckboxStatusColor() : "#3f3f3f",
-        }}
-        className={`checkbox-container checkbox-${size} ${
-          value ? `checkbox-checked checkbox-${status}` : ""
-        }`}
-        onClick={() => {
-          if (onChange) {
-            onChange(!value);
-          }
-        }}
-      >
-        <FontAwesomeIcon icon={faCheck} className={`check`} />
-      </motion.span>
-    </span>
+    <div className={`radio-group-container radio-group-container-${status}`}>
+      {children}
+      {radioElements.map((element) => {
+        return (
+          <span
+            className={`radio-container`}
+            onClick={() => {
+              onChange(element.value);
+            }}
+          >
+            {value === element.value && (
+              <FontAwesomeIcon icon={faCircle} className="radio" />
+            )}
+          </span>
+        );
+      })}
+    </div>
   );
 }
 
@@ -62,9 +74,5 @@ export interface RadioProps {
   label: string;
 }
 export function Radio({ value, label }: RadioProps) {
-  return (
-    <span className="radio-container">
-      <span className="radio"></span>
-    </span>
-  );
+  return <span />;
 }

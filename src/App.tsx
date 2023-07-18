@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import Button, { ButtonProps } from "./Components/Button";
 import CheckBox, { CheckBoxProps } from "./Components/CheckBox";
+import RadioGroup, { Radio, RadioGroupProps } from "./Components/RadioGroup";
 import TextField, { TextFieldProps } from "./Components/TextField";
 
 function App() {
   const [email, setEmail] = useState<string>("");
   const [someBull, setSomeBull] = useState<boolean>(false);
+  const [someRadioValue, setSomeRadioValue] = useState<any>("");
 
   const textInputProps: TextFieldProps = {
     label: "Email",
@@ -45,6 +47,13 @@ function App() {
       console.log(e);
       setSomeBull(e);
     },
+  };
+  const radioGroupProps: Omit<RadioGroupProps, "children"> = {
+    onChange: (e) => {
+      console.log(e);
+      setSomeRadioValue(e);
+    },
+    value: someRadioValue,
   };
   return (
     <div className="App">
@@ -150,6 +159,35 @@ function App() {
           variant="outlined"
           showIcon={false}
         />
+      </div>
+      <div
+        style={{
+          padding: "20px",
+          width: "100%",
+          boxSizing: "border-box",
+          display: "flex",
+        }}
+      >
+        <RadioGroup status="success" {...radioGroupProps}>
+          <Radio value={12} label="Choose 12" />
+          <Radio value={24} label="Choose 24" />
+        </RadioGroup>
+        <RadioGroup status="default" {...radioGroupProps}>
+          <Radio value={12} label="Choose 12" />
+          <Radio value={24} label="Choose 24" />
+        </RadioGroup>
+        <RadioGroup status="info" {...radioGroupProps}>
+          <Radio value={12} label="Choose 12" />
+          <Radio value={24} label="Choose 24" />
+        </RadioGroup>
+        <RadioGroup status="error" {...radioGroupProps}>
+          <Radio value={12} label="Choose 12" />
+          <Radio value={24} label="Choose 24" />
+        </RadioGroup>
+        <RadioGroup status="warning" {...radioGroupProps}>
+          <Radio value={12} label="Choose 12" />
+          <Radio value={24} label="Choose 24" />
+        </RadioGroup>
       </div>
       <br />
     </div>
