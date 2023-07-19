@@ -7,4 +7,34 @@
     border-radius: 8px;
     cursor: pointer;
   }
+  .options {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 103, 163, 0.549);
+    width: 400px;
+    margin-top: 3px;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 9999;
+    padding: 10px 0;
+    max-height: 300px;
+
+    .option {
+      height: 35px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      padding-left: 20px;
+      cursor: pointer;
+      transition-duration: 0.12s;
+      font-size: 14px;
+      box-sizing: border-box;
+      padding: 20px;
+    }
+    :hover {
+      background-color: $InfoTertiary;
+      // color: #fff;
+    }
+  }
 }

@@ -15,6 +15,21 @@ function App() {
     { label: "Dr Braavosi", value: "Lord Braavo" },
     { label: "Stallone", value: "Stalls" },
     { label: "Bing", value: "Bing Bang Buck" },
+    { label: "Chillin", value: "Bing Chillin" },
+    { label: "When", value: "Ever" },
+    { label: "Lorem", value: "Ipsum" },
+    { label: "Deez", value: "Nutz" },
+    { label: "Agatha", value: "Christie" },
+    { label: "Winchester", value: "97" },
+    { label: "Dr Braavosi", value: "Lord Braavo" },
+    { label: "Stallone", value: "Stalls" },
+    { label: "Bing", value: "Bing Bang Buck" },
+    { label: "Chillin", value: "Bing Chillin" },
+    { label: "When", value: "Ever" },
+    { label: "Lorem", value: "Ipsum" },
+    { label: "Deez", value: "Nutz" },
+    { label: "Agatha", value: "Christie" },
+    { label: "Winchester", value: "97" },
   ];
 
   const textInputProps: TextFieldProps = {
@@ -205,7 +220,16 @@ function App() {
         </RadioGroup>
       </div>
       <br />
-      <Select {...selectProps} />
+      <div
+        style={{
+          padding: "20px",
+          width: "100%",
+          boxSizing: "border-box",
+          display: "flex",
+        }}
+      >
+        <Select {...selectProps} />
+      </div>
       <br />
       <br />
       <br />
