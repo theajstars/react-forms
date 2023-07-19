@@ -25,6 +25,34 @@
     opacity: 0.7;
   }
 }
+.radio-container-md {
+  width: 15px !important;
+  height: 15px !important;
+  padding: 2px !important;
+
+  .radio {
+    font-size: 13px !important;
+  }
+}
+.radio-container-lg {
+  width: 20px !important;
+  height: 20px !important;
+  padding: 2px !important;
+
+  .radio {
+    font-size: 15px !important;
+  }
+}
+.radio-container-sm {
+  width: 11px !important;
+  height: 11px !important;
+  padding: 2px !important;
+
+  .radio {
+    font-size: 8px !important;
+  }
+}
+
 .radio-group-container-default {
   .radio-container {
     border: 1px solid $WhiteSecondary;

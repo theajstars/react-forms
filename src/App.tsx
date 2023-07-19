@@ -180,11 +180,11 @@ function App() {
           <Radio value={12} label="Choose 12" />
           <Radio value={24} label="Choose 24" />
         </RadioGroup>
-        <RadioGroup status="error" {...radioGroupProps}>
+        <RadioGroup size="lg" status="error" {...radioGroupProps}>
           <Radio value={12} label="Choose 12" />
           <Radio value={24} label="Choose 24" />
         </RadioGroup>
-        <RadioGroup status="warning" {...radioGroupProps}>
+        <RadioGroup size="sm" status="warning" {...radioGroupProps}>
           <Radio value={12} label="Choose 12" />
           <Radio value={24} label="Choose 24" />
         </RadioGroup>

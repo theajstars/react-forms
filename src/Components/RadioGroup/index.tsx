@@ -50,11 +50,10 @@ export default function RadioGroup({
   console.log(radioElements);
   return (
     <div className={`radio-group-container radio-group-container-${status}`}>
-      {children}
       {radioElements.map((element) => {
         return (
           <span
-            className={`radio-container`}
+            className={`radio-container radio-container-${size}`}
             onClick={() => {
               onChange(element.value);
             }}
