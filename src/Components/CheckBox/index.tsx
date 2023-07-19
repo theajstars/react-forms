@@ -44,7 +44,7 @@ export default function CheckBox({
         style={checkboxStyle}
         animate={{
           backgroundColor: value ? getCheckboxStatusColor() : "#fff",
-          borderColor: value ? getCheckboxStatusColor() : "#3f3f3f",
+          borderColor: value ? getCheckboxStatusColor() : "#b0b0b0",
         }}
         className={`checkbox-container checkbox-${size} ${
           value ? `checkbox-checked checkbox-${status}` : ""
