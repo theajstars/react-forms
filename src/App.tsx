@@ -2,12 +2,20 @@ import React, { useState } from "react";
 import Button, { ButtonProps } from "./Components/Button";
 import CheckBox, { CheckBoxProps } from "./Components/CheckBox";
 import RadioGroup, { Radio, RadioGroupProps } from "./Components/RadioGroup";
+import Select, { SelectProps } from "./Components/Select";
 import TextField, { TextFieldProps } from "./Components/TextField";
 
 function App() {
   const [email, setEmail] = useState<string>("");
   const [someBull, setSomeBull] = useState<boolean>(false);
   const [someRadioValue, setSomeRadioValue] = useState<any>("");
+  const [someSelectValue, setSomeSelectValue] = useState<any>("");
+
+  const selectOptions = [
+    { label: "Dr Braavosi", value: "Lord Braavo" },
+    { label: "Stallone", value: "Stalls" },
+    { label: "Bing", value: "Bing Bang Buck" },
+  ];
 
   const textInputProps: TextFieldProps = {
     label: "Email",
@@ -54,6 +62,13 @@ function App() {
       setSomeRadioValue(e);
     },
     value: someRadioValue,
+  };
+  const selectProps: SelectProps = {
+    value: someSelectValue,
+    onChange: (e) => {
+      console.log(e);
+    },
+    options: selectOptions,
   };
   return (
     <div className="App">
@@ -189,6 +204,10 @@ function App() {
           <Radio value={24} label="Choose 24" />
         </RadioGroup>
       </div>
+      <br />
+      <Select {...selectProps} />
+      <br />
+      <br />
       <br />
     </div>
   );

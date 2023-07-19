@@ -1,0 +1,10 @@
+@import "../../index.scss";
+.select-container {
+  .select {
+    height: 35px;
+    width: 400px;
+    border: 2px solid $InfoPrimary;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+}
