@@ -7,13 +7,15 @@ import { faWarning } from "@fortawesome/free-solid-svg-icons";
 
 import "./style.scss";
 
-export interface TextFieldProps
-  extends React.ComponentPropsWithoutRef<"input"> {
+export interface TextFieldProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label?: string;
   errorMessage?: string;
-
+  placeholder?: string;
+  value?: any;
   error?: boolean;
+  spellCheck?: boolean;
+  type?: "text" | "number" | "password" | "search";
   inputSize?: "lg" | "md" | "sm";
   showBorder?: boolean;
   inputStyle?: React.CSSProperties;
@@ -25,12 +27,16 @@ export default function TextField({
   onChange,
   label,
   error,
+  value,
   showBorder = true,
   inputSize = "md",
   inputStyle,
   labelStyle,
+  type = "text",
   errorMessage,
   classNameList,
+  spellCheck = false,
+  placeholder,
 }: Omit<TextFieldProps, "className">) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [animate, setAnimate] = useState<boolean>(false);
@@ -52,6 +58,8 @@ export default function TextField({
       )}
       <motion.input
         initial={false}
+        value={value}
+        type={type}
         animate={{
           borderColor: error
             ? "#D44848"
@@ -67,6 +75,7 @@ export default function TextField({
           setAnimate(false);
         }}
         onChange={onChange}
+        placeholder={placeholder ?? ""}
         className={`input input-${inputSize} ${
           error ? "input-error" : ""
         } border-${showBorder} ${classes}`}

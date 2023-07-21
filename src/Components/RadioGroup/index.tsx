@@ -53,14 +53,17 @@ export default function RadioGroup({
       {radioElements.map((element) => {
         return (
           <span
-            className={`radio-container radio-container-${size}`}
+            className="radio-element-container"
             onClick={() => {
               onChange(element.value);
             }}
           >
-            {value === element.value && (
-              <FontAwesomeIcon icon={faCircle} className="radio" />
-            )}
+            <span className={`radio-container radio-container-${size}`}>
+              {value === element.value && (
+                <FontAwesomeIcon icon={faCircle} className="radio" />
+              )}
+            </span>
+            <span className="label">{element.label}</span>
           </span>
         );
       })}

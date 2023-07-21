@@ -4,25 +4,33 @@
   flex-direction: row;
   width: fit-content;
   margin: 5px;
-
-  .radio-container {
-    border-radius: 50%;
+  .radio-element-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 15px;
-    height: 15px;
-    padding: 2px;
-    cursor: pointer;
-    border: 1px solid;
-    margin: 0 2px;
-    transition-duration: 0.12s;
-    .radio {
-      font-size: 13px;
+    width: fit-content;
+    .radio-container {
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 15px;
+      height: 15px;
+      padding: 2px;
+      cursor: pointer;
+      border: 1px solid;
+      margin: 0 2px;
+      transition-duration: 0.12s;
+      .radio {
+        font-size: 13px;
+      }
     }
-  }
-  .radio-container:hover {
-    opacity: 0.7;
+    .radio-container:hover {
+      opacity: 0.7;
+    }
+    .label {
+      margin-left: 3px;
+    }
   }
 }
 .radio-container-md {
@@ -54,42 +62,52 @@
 }
 
 .radio-group-container-default {
-  .radio-container {
-    border: 1px solid $WhiteSecondary;
-  }
-  .radio {
-    color: $WhiteSecondary;
+  .radio-element-container {
+    .radio-container {
+      border: 1px solid $WhiteSecondary;
+    }
+    .radio {
+      color: $WhiteSecondary;
+    }
   }
 }
 .radio-group-container-success {
-  .radio-container {
-    border: 1px solid $GreenPrimary;
-  }
-  .radio {
-    color: $GreenPrimary;
+  .radio-element-container {
+    .radio-container {
+      border: 1px solid $GreenPrimary;
+    }
+    .radio {
+      color: $GreenPrimary;
+    }
   }
 }
 .radio-group-container-error {
-  .radio-container {
-    border: 1px solid $RedPrimary;
-  }
-  .radio {
-    color: $RedPrimary;
+  .radio-element-container {
+    .radio-container {
+      border: 1px solid $RedPrimary;
+    }
+    .radio {
+      color: $RedPrimary;
+    }
   }
 }
 .radio-group-container-info {
-  .radio-container {
-    border: 1px solid $InfoPrimary;
-  }
-  .radio {
-    color: $InfoPrimary;
+  .radio-element-container {
+    .radio-container {
+      border: 1px solid $InfoPrimary;
+    }
+    .radio {
+      color: $InfoPrimary;
+    }
   }
 }
 .radio-group-container-warning {
-  .radio-container {
-    border: 1px solid $YellowPrimary;
-  }
-  .radio {
-    color: $YellowPrimary;
+  .radio-element-container {
+    .radio-container {
+      border: 1px solid $YellowPrimary;
+    }
+    .radio {
+      color: $YellowPrimary;
+    }
   }
 }

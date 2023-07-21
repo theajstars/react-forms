@@ -37,12 +37,12 @@ function App() {
     placeholder: "Enter your email",
     value: email,
     onChange: (e) => setEmail(e.target.value),
-    error: email.length === 0,
+    error: someBull,
     showBorder: true,
     spellCheck: false,
     inputSize: "md",
-    type: "password",
-    errorMessage: "An error occured",
+    type: "text",
+    errorMessage: "Please input some null error",
     inputStyle: {
       // borderColor: "red",
       // backgroundColor: "green",
@@ -64,7 +64,7 @@ function App() {
     style: {
       margin: "10px",
     },
-    label: "Click on Deez",
+    label: "Toggle Error",
     value: someBull,
     onChange: (e) => {
       console.log(e);
