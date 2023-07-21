@@ -14,12 +14,14 @@ export interface SelectProps {
   label?: string;
   placeholder?: string;
   options: { value: any; label: string }[];
+  fullWidth?: boolean;
 }
 export default function Select({
   value,
   onChange,
   size = "md",
   options,
+  fullWidth,
   label,
   placeholder,
 }: SelectProps) {

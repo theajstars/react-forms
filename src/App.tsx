@@ -91,6 +91,9 @@ function App() {
       <div style={{ padding: "20px", width: "100%", boxSizing: "border-box" }}>
         <TextField {...textInputProps} />
       </div>
+      <div style={{ padding: "20px", width: "100%", boxSizing: "border-box" }}>
+        <Select {...selectProps} fullWidth />
+      </div>
       <div
         style={{
           padding: "20px",
